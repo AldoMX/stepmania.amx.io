@@ -1,0 +1,24 @@
+---
+title: Chat de desarrollo
+isFullScreen: true
+useVideoBackground: false
+---
+<% if (isChatEnabled) { %>
+    <iframe width="100%" height="100%" scrolling="no" src="http://widget.mibbit.com/?settings=cb168ddded4149bea255750ee7feda86&server=irc.Mibbit.Net&channel=%23StepManiaAMX"></iframe>
+<% } else { %>
+    <div class="formdetails well">
+        <p>Hola, contamos con 2 chats diferentes para resolver tus dudas:</p>
+        <ul>
+            <li>
+                <a href="//rhythm-amx.slack.com">Slack</a>
+                <small>[<a href="/invitacion-slack/">Solicitar Invitación</a>]</small>
+                <small>[<a href="//rhythm-amx.slack.com/downloads">Descargar</a>]</small>
+                - En este chat resolvemos dudas sobre creación de contenido, y platicamos sobre las próximas mejoras que se realizarán, en este chat puedes recibir respuesta en 2 o 3 días.
+            </li>
+            <li>
+                <a href="//m.me/StepManiaAMX">Facebook Messenger</a>
+                - En este chat puedes recibir atención personalizada, sin embargo, en este chat puedes recibir respuesta en 1 o 2 semanas.
+            </li>
+        </ul>
+    </div>
+<% } %>

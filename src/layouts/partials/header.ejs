@@ -1,0 +1,39 @@
+<div class="top">
+    <div class="bgvideo-container">
+        <% if (useVideoBackground) { %>
+            <video class="bgvideo" autoplay loop muted poster="/img/back.jpg">
+                <source src="/img/back.mp4" type="video/mp4">
+                <source src="/img/back.webm" type="video/webm">
+            </video>
+        <% } %>
+    </div>
+
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="logo">
+                        <a href="/">
+                            <img src="/img/text.png" alt="StepMania AMX" title="StepMania AMX">
+                            <h1 class="sr-only">StepMania AMX</h1>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="navigation pull-right">
+                        <% for (let element of headerMenu) { %>
+                            <a href="<%= element.href %>"><%= element.label %></a>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <% if (displayHero.header) { %>
+        <% let isHeroFooter = false; %>
+        <% include hero %>
+    <% } else { %>
+        <% include hero-title %>
+    <% } %>
+</div>

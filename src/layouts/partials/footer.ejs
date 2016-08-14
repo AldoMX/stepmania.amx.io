@@ -1,0 +1,14 @@
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="copy text-center">
+                    StepMania AMX © 2008-2016 <a href="//aldo.mx">Aldo Fregoso</a><br />
+                    <% for (let [index, element] of footerMenu.entries()) { %>
+                        <% if (index > 0) { %> | <% } %><a href="<%= element.href %>"><%= element.label %></a>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

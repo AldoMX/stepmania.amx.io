@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html<% if (isFullScreen) { %> class="full-screen"<% } %>>
+<head>
+<% include partials/head %>
+</head>
+<body>
+<% include partials/header %>
+
+<% if (useDefaultContainer) { %>
+    <div class="content block">
+        <div class="container">
+            <%- contents %>
+        </div>
+    </div>
+<% } else { %>
+    <%- contents %>
+<% } %>
+
+<% if (displayHero.footer) { %>
+    <% let isHeroFooter = true; %>
+    <% include partials/hero %>
+<% } %>
+
+<% include partials/footer %>
+
+<% include partials/scripts %>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<meta charset="utf-8">
+<title>StepMania AMX<% if (title) { %> - <%= title %><% } %></title>
+
+<meta name="author" content="Aldo.MX">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<% for (let key of Object.keys(meta)) { %>
+<meta name="<%= key %>" content="<%= meta[key] %>">
+<% } %>
+<% if (showFacebookAppId) { %>
+<meta property="fb:app_id" content="405543316125268">
+<% } %>
+
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+<% for (let href of dependencies.css || []) { %>
+<link rel="stylesheet" href="<%= href %>">
+<% } %>
+
+<link rel="stylesheet" href="/css/style.css">
+<% for (let href of includes.css || []) { %>
+<link rel="stylesheet" href="<%= href %>">
+<% } %>
+
+<link rel="shortcut icon" href="/favicon.ico">

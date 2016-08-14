@@ -1,0 +1,28 @@
+{
+  "name": "stepmania.amx.io",
+  "version": "1.0.0",
+  "description": "StepMania AMX's Website",
+  "main": "build.js",
+  "scripts": {
+    "clean": "rm -rf _public/* && touch _public/.gitkeep",
+    "start": "node build.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "StepMania AMX",
+    "Metalsmith"
+  ],
+  "author": "Aldo Fregoso <aldomx@gmail.com>",
+  "license": "AGPL-1.0",
+  "dependencies": {
+    "ejs": "^2.5.1",
+    "metalsmith": "^2.2.0",
+    "metalsmith-assets": "^0.1.0",
+    "metalsmith-in-place": "^1.4.4",
+    "metalsmith-layouts": "^1.6.5",
+    "metalsmith-markdown": "^0.2.1"
+  },
+  "devDependencies": {
+    "eslint": "^3.3.0"
+  }
+}
