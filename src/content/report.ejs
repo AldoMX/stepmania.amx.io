@@ -1,61 +1,82 @@
 ---
 title: Reporte de Errores
-contentClass: about-us
 dependencies:
     js:
         - /js/jszip.min.js
 includes:
     js:
         - /js/report.js
+useDefaultContainer: false
 ---
-<div class="about-one">
-    <div class="about-one-item">
-        <div class="about-one-img">
-            <img src="/img/logo_old_130.png" alt="StepMania AMX" class="img-responsive">
+<div class="about-us block">
+    <div class="container">
+        <div class="about-one">
+            <div class="about-one-item">
+                <div class="about-one-img">
+                    <img src="/img/logo_old_130.png" alt="StepMania AMX" class="img-responsive">
+                </div>
+            </div>
+            <div class="about-one-item">
+                <div class="about-one-content">
+                    <h3>¡Una disculpa por el error!</h3>
+                    <p>Antes que nada, quiero ofrecerte una disculpa por la mala experiencia que te causó este error, y quiero agradecerte por tomarte la molestia de reportarlo.</p>
+                    <p>Solo es posible reportar crashes, es decir, errores que aparecen con una ventana como la siguiente:</p>
+                    <p class="text-center"><img src="/img/crash.png" alt="Crash" class="img-responsive inline"></p>
+                    <p>Si tienes dudas adicionales, puedes consultar en el <a href="/chat/">chat</a>.</p>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+
+        <div class="formdetails well">
+            <form class="form-horizontal" id="upload_report" method="POST" action="<%= apiRoot %>/upload_report.php" enctype="multipart/form-data" role="form">
+                <fieldset>
+                    <legend>Reportar Crash</legend>
+                    <p>Para reportar el error, necesitas buscar los siguientes archivos de la carpeta <strong>Logs</strong>,
+                        dentro de la carpeta donde instalaste <strong>StepMania AMX</strong>:</p>
+                    <div class="form-group">
+                        <label for="file_crashinfo" class="col-xs-3 control-label">crashinfo.txt</label>
+                        <div class="col-xs-9">
+                            <input type="file" class="form-control" id="file_crashinfo" name="file_crashinfo">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="file_log" class="col-xs-3 control-label">log.txt</label>
+                        <div class="col-xs-9">
+                            <input type="file" class="form-control" id="file_log" name="file_log">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="text_feedback" class="col-lg-3 control-label">¿Qué estabas haciendo cuando sucedio el error?</label>
+                        <div class="col-lg-9">
+                            <textarea class="form-control" rows="5" id="text_feedback" name="text_feedback"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-lg-offset-3 col-lg-9">
+                            <button type="submit" class="btn btn-primary">Enviar</button>
+                            <button type="reset" class="btn btn-default">Resetear</button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
         </div>
     </div>
-    <div class="about-one-item">
-        <div class="about-one-content">
-            <h3>¡Una disculpa por el error!</h3>
-            <p>Antes que nada, quiero ofrecerte una disculpa por la mala experiencia que te causó este error, y quiero agradecerte por tomarte la molestia de reportarlo.</p>
-            <p>Solo es posible reportar crashes, es decir, errores que aparecen con una ventana como la siguiente:</p>
-            <p class="text-center"><img src="/img/crash.png" alt="Crash" class="img-responsive inline"></p>
-            <p>Si tienes dudas adicionales, puedes consultar en el <a href="/chat/">chat</a>.</p>
-        </div>
-    </div>
-    <div class="clearfix"></div>
 </div>
 
-<div class="formdetails well">
-    <form class="form-horizontal" id="upload_report" method="POST" action="<%= apiRoot %>/upload_report.php" enctype="multipart/form-data" role="form">
-        <fieldset>
-            <legend>Reportar Crash</legend>
-            <p>Para reportar el error, necesitas buscar los siguientes archivos de la carpeta <strong>Logs</strong>,
-                dentro de la carpeta donde instalaste <strong>StepMania AMX</strong>:</p>
-            <div class="form-group">
-                <label for="file_crashinfo" class="col-xs-3 control-label">crashinfo.txt</label>
-                <div class="col-xs-9">
-                    <input type="file" class="form-control" id="file_crashinfo" name="file_crashinfo">
+<div id="modal_enviando" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Enviando Reporte...</h4>
+            </div>
+            <div class="modal-body">
+                <div class="progress progress-striped active">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+                        <span class="sr-only">0% completado</span>
+                    </div>
                 </div>
             </div>
-            <div class="form-group">
-                <label for="file_log" class="col-xs-3 control-label">log.txt</label>
-                <div class="col-xs-9">
-                    <input type="file" class="form-control" id="file_log" name="file_log">
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="text_feedback" class="col-lg-3 control-label">¿Qué estabas haciendo cuando sucedio el error?</label>
-                <div class="col-lg-9">
-                    <textarea class="form-control" rows="5" id="text_feedback" name="text_feedback"></textarea>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-lg-offset-3 col-lg-9">
-                    <button type="submit" class="btn btn-primary">Enviar</button>
-                    <button type="reset" class="btn btn-default">Resetear</button>
-                </div>
-            </div>
-        </fieldset>
-    </form>
+        </div>
+    </div>
 </div>
