@@ -1,4 +1,18 @@
-document.addEventListener && document.addEventListener('DOMContentLoaded', function () {
+function supportsAjaxForm () {
+    return document.addEventListener &&
+        'Promise' in window &&
+        'resolve' in window.Promise &&
+        'reject' in window.Promise &&
+        'all' in window.Promise &&
+        'race' in window.Promise &&
+        (function() {
+            var resolve;
+            new window.Promise(function(r) { resolve = r; });
+            return typeof resolve === 'function';
+        }());
+}
+
+supportsAjaxForm() && document.addEventListener('DOMContentLoaded', function () {
     var $ = function (id) { return document.getElementById(id); };
     var form = $('upload_report'),
         input_crashinfo = $('file_crashinfo'),
