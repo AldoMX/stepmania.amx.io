@@ -6,6 +6,10 @@
         "node": true
     },
     "extends": "eslint:recommended",
+    "globals": {
+        "jQuery": true,
+        "JSZip": true
+    },
     "rules": {
         "indent": [
             "error",

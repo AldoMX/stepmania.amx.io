@@ -41,6 +41,7 @@ const defaultMetadata = {
         'header': false,
         'footer': false
     },
+    'contentClass': 'content',
     'isChatEnabled': false,
     'isFullScreen': false,
     'showFacebookAppId': false,
