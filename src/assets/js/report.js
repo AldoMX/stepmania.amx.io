@@ -34,6 +34,7 @@ document.addEventListener && document.addEventListener('DOMContentLoaded', funct
             reader.onload = function (event) {
                 content_log = event.target.result;
                 content_feedback = input_feedback.value;
+                reader = undefined;
                 zipFiles(event_submit);
             };
             reader.readAsText(input_log.files[0]);
@@ -90,15 +91,17 @@ document.addEventListener && document.addEventListener('DOMContentLoaded', funct
         if (content_feedback != '')
             zip.file('feedback.txt', content_feedback);
 
-        content_zip = zip.generate({
+        zip.generateAsync({
             compression: 'DEFLATE',
             type: 'blob'
-        });
-        content_crashinfo = undefined;
-        content_log = undefined;
-        content_feedback = undefined;
+        }).then(function (blob) {
+            content_zip = blob;
+            content_crashinfo = undefined;
+            content_log = undefined;
+            content_feedback = undefined;
 
-        uploadZip(event);
+            uploadZip(event);
+        });
     }
 
     form.addEventListener('submit', function (event) {
