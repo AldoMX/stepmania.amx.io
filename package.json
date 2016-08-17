@@ -1,19 +1,39 @@
 {
   "name": "stepmania.amx.io",
   "version": "1.0.0",
-  "description": "StepMania AMX's Website",
-  "main": "build.js",
-  "scripts": {
-    "clean": "rm -rf _public/* && touch _public/.gitkeep",
-    "start": "node build.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "description": "StepMania AMX's website",
   "keywords": [
     "StepMania AMX",
     "Metalsmith"
   ],
-  "author": "Aldo Fregoso <aldomx@gmail.com>",
+  "homepage": "http://stepmania.amx.io",
+  "bugs": {
+    "url": "https://github.com/AldoMX/stepmania.amx.io/issues",
+    "email": "aldomx@gmail.com"
+  },
   "license": "AGPL-1.0",
+  "author": {
+    "name": "Aldo Fregoso",
+    "email": "aldomx@gmail.com",
+    "web": "http://aldo.mx"
+  },
+  "contributors": [
+    {
+      "name": "Aldo Fregoso",
+      "email": "aldomx@gmail.com",
+      "web": "http://aldo.mx"
+    }
+  ],
+  "main": "build.js",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:AldoMX/stepmania.amx.io.git"
+  },
+  "scripts": {
+    "clean": "rm -rf _public/* && touch _public/.gitkeep",
+    "start": "npm run clean && node build.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "dependencies": {
     "ejs": "^2.5.1",
     "metalsmith": "^2.2.0",
@@ -28,5 +48,8 @@
   },
   "devDependencies": {
     "eslint": "^3.3.0"
+  },
+  "engines": {
+    "node": "^6.4.0"
   }
 }

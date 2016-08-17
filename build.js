@@ -96,6 +96,7 @@ const minifyOptions = {
 metalsmith(__dirname)
     .source('./src/content')
     .destination('./_public')
+    .clean(false)
     .metadata(defaultMetadata)
     .use(markdown())
     .use(inPlace(inPlaceOptions))
