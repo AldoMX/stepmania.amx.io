@@ -76,7 +76,8 @@ const layoutOptions = {
 const minifyOptions = {
     'css': {
         'cleanCSS': {
-            'keepSpecialComments': 1
+            'keepSpecialComments': 1,
+            'rebase': false
         },
         'files': 'css/**/!(*.min.css)'
     },
