@@ -6,6 +6,14 @@ const layout = require('metalsmith-layouts');
 const markdown = require('metalsmith-markdown');
 
 const html2folder = require('./metalsmith-middleware/html2folder');
+const cleanup = require('./metalsmith-middleware/cleanup');
+
+const minify = {
+    html: require('metalsmith-html-minifier'),
+    css: require('metalsmith-clean-css'),
+    js: require('metalsmith-uglify'),
+    img: require('metalsmith-imagemin/lib/node6'),
+};
 
 const defaultMetadata = {
     'title': '',
@@ -65,6 +73,25 @@ const layoutOptions = {
     'pattern': '**/*.html'
 };
 
+const minifyOptions = {
+    'css': {
+        'cleanCSS': {
+            'keepSpecialComments': 1
+        },
+        'files': 'css/**/!(*.min.css)'
+    },
+    'js': {
+        'filter': 'js/**/!(*.min.js)',
+        'preserveComments': 'some'
+    },
+    'img': {
+        'gifsicle': {},
+        'mozjpeg': {},
+        'pngquant': {},
+        'svgo': {}
+    }
+};
+
 metalsmith(__dirname)
     .source('./src/content')
     .destination('./_public')
@@ -73,7 +100,12 @@ metalsmith(__dirname)
     .use(inPlace(inPlaceOptions))
     .use(layout(layoutOptions))
     .use(html2folder())
+    .use(minify.html())
     .use(assets(assetOptions))
+    .use(minify.css(minifyOptions.css))
+    .use(minify.js(minifyOptions.js))
+    .use(minify.img(minifyOptions.img))
+    .use(cleanup())
     .build(function (err) {
         if (err) throw err;
     });
