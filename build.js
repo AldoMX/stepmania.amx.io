@@ -5,8 +5,8 @@ const inPlace = require('metalsmith-in-place');
 const layout = require('metalsmith-layouts');
 const markdown = require('metalsmith-markdown');
 
-const html2folder = require('./metalsmith-middleware/html2folder');
-const cleanup = require('./metalsmith-middleware/cleanup');
+const html2folder = require('./plugins/html2folder');
+const cleanup = require('./plugins/cleanup');
 
 const minify = {
     html: require('metalsmith-html-minifier'),
