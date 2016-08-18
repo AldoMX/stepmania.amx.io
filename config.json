@@ -1,0 +1,93 @@
+{
+    "source": "./src/content",
+    "destination": "./_public",
+    "clean": false,
+    "plugins": {
+        "assets": {
+            "source": "./src/assets"
+        },
+        "inPlace": {
+            "engine": "ejs",
+            "pattern": "**/*.ejs",
+            "rename": true
+        },
+        "layout": {
+            "engine": "ejs",
+            "directory": "./src/layouts",
+            "default": "default.ejs",
+            "pattern": "**/*.html"
+        },
+        "minify": {
+            "css": {
+                "cleanCSS": {
+                    "keepSpecialComments": 1,
+                    "rebase": false
+                },
+                "files": "css/**/!(*.min).css"
+            },
+            "js": {
+                "filter": "js/**/!(*.min).js",
+                "preserveComments": "some"
+            },
+            "img": {
+                "gifsicle": {},
+                "mozjpeg": {},
+                "pngquant": {},
+                "svgo": {}
+            }
+        }
+    },
+    "metadata": {
+        "title": "",
+        "apiRoot": "//api.stepmania.amx.io",
+        "sma": {
+            "version": "Beta 5.9.2",
+            "download": "//download.stepmania.amx.io/SMA-Beta5.9.2-20140524.7z",
+            "otherDownloads": "//download.stepmania.amx.io"
+        },
+        "headerMenu": [
+            {
+                "href": "//rhythm-amx.slack.com/",
+                "label": "Slack"
+            },
+            {
+                "href": "//www.facebook.com/StepManiaAMX",
+                "label": "Facebook"
+            }
+        ],
+        "footerMenu": [
+            {
+                "href": "/chat/",
+                "label": "Chat"
+            },
+            {
+                "href": "//sma.uservoice.com",
+                "label": "Feedback"
+            },
+            {
+                "href": "/report/",
+                "label": "Reporte de Errores"
+            }
+        ],
+        "meta": {
+            "description": "StepMania AMX (SMA) es una versión alterna, basada en StepMania 3.9, que desde sus inicios se ha enfocado en mejorar la experiencia de juego."
+        },
+        "dependencies": {
+            "css": [],
+            "js": []
+        },
+        "includes": {
+            "css": [],
+            "js": []
+        },
+        "displayHero": {
+            "header": false,
+            "footer": false
+        },
+        "isChatEnabled": false,
+        "isFullScreen": false,
+        "showFacebookAppId": false,
+        "useDefaultContainer": true,
+        "useVideoBackground": false
+    }
+}

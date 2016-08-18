@@ -15,98 +15,22 @@ const minify = {
     img: require('metalsmith-imagemin/lib/node6'),
 };
 
-const defaultMetadata = {
-    'title': '',
-    'apiRoot': '//api.stepmania.amx.io',
-    'sma': {
-        'version': 'Beta 5.9.2',
-        'download': '//download.stepmania.amx.io/SMA-Beta5.9.2-20140524.7z',
-        'otherDownloads': '//download.stepmania.amx.io'
-    },
-    'headerMenu': [
-        //{ 'href': '/', 'label': 'Inicio' },
-        //{ 'href': '/blog/', 'label': 'Blog' },
-        { 'href': '//rhythm-amx.slack.com/', 'label': 'Slack' },
-        { 'href': '//www.facebook.com/StepManiaAMX', 'label': 'Facebook' }
-    ],
-    'footerMenu': [
-        { 'href': '/chat/', 'label': 'Chat' },
-        { 'href': '//sma.uservoice.com', 'label': 'Feedback' },
-        { 'href': '/report/', 'label': 'Reporte de Errores' }
-    ],
-    'meta': {
-        'description': 'StepMania AMX (SMA) es una versión alterna, basada en StepMania 3.9, que desde sus inicios se ha enfocado en mejorar la experiencia de juego.'
-    },
-    'dependencies': {
-        'css': [],
-        'js': []
-    },
-    'includes': {
-        'css': [],
-        'js': []
-    },
-    'displayHero': {
-        'header': false,
-        'footer': false
-    },
-    'isChatEnabled': false,
-    'isFullScreen': false,
-    'showFacebookAppId': false,
-    'useDefaultContainer': true,
-    'useVideoBackground': false
-};
-
-const assetOptions = {
-    source: './src/assets'
-};
-
-const inPlaceOptions = {
-    'engine': 'ejs',
-    'pattern': '**/*.ejs',
-    'rename': true
-};
-
-const layoutOptions = {
-    'engine': 'ejs',
-    'directory': './src/layouts',
-    'default': 'default.ejs',
-    'pattern': '**/*.html'
-};
-
-const minifyOptions = {
-    'css': {
-        'cleanCSS': {
-            'keepSpecialComments': 1,
-            'rebase': false
-        },
-        'files': 'css/**/!(*.min.css)'
-    },
-    'js': {
-        'filter': 'js/**/!(*.min.js)',
-        'preserveComments': 'some'
-    },
-    'img': {
-        'gifsicle': {},
-        'mozjpeg': {},
-        'pngquant': {},
-        'svgo': {}
-    }
-};
+const config = require('./config.json');
 
 metalsmith(__dirname)
-    .source('./src/content')
-    .destination('./_public')
-    .clean(false)
-    .metadata(defaultMetadata)
+    .source(config.source)
+    .destination(config.destination)
+    .clean(config.clean)
+    .metadata(config.metadata)
     .use(markdown())
-    .use(inPlace(inPlaceOptions))
-    .use(layout(layoutOptions))
+    .use(inPlace(config.plugins.inPlace))
+    .use(layout(config.plugins.layout))
     .use(html2folder())
     .use(minify.html())
-    .use(assets(assetOptions))
-    .use(minify.css(minifyOptions.css))
-    .use(minify.js(minifyOptions.js))
-    .use(minify.img(minifyOptions.img))
+    .use(assets(config.plugins.assets))
+    .use(minify.css(config.plugins.minify.css))
+    .use(minify.js(config.plugins.minify.js))
+    .use(minify.img(config.plugins.minify.img))
     .use(cleanup())
     .build(function (err) {
         if (err) throw err;
