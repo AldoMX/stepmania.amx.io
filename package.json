@@ -30,8 +30,7 @@
     "url": "git+ssh://git@github.com:AldoMX/stepmania.amx.io.git"
   },
   "scripts": {
-    "clean": "rm -rf _public/* && touch _public/.gitkeep",
-    "start": "npm run clean && node build.js",
+    "start": "node build.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {

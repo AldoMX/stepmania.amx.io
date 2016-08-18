@@ -20,7 +20,6 @@ const config = require('./config.json');
 metalsmith(__dirname)
     .source(config.source)
     .destination(config.destination)
-    .clean(config.clean)
     .metadata(config.metadata)
     .use(markdown())
     .use(inPlace(config.plugins.inPlace))

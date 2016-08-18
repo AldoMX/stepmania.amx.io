@@ -1,7 +1,6 @@
 {
     "source": "./src/content",
-    "destination": "./_public",
-    "clean": false,
+    "destination": "../www",
     "plugins": {
         "assets": {
             "source": "./src/assets"
