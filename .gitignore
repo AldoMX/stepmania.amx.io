@@ -1,4 +1,2 @@
-_public/
-!_public/.gitkeep
 .vscode/
 node_modules/
