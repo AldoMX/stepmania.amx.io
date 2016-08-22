@@ -1,7 +1,7 @@
 ---
 files:
     - js/jszip.min.js
-    - js/report.js
+    - js/report.min.js
 forceOutput: true
 insertNewLine: true
 output: js/report.min.js
