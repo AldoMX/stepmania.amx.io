@@ -1,16 +1,21 @@
 TODO:
-	- Implement metalsmith-concat-convention
-	- i18n
-	- Other Downloads section
+	- metalsmith-multi-language
+		Translate /content
+	- metalsmith-i18n
+		- i18n
+			- Hero
+			- config.json
+				- headerMenu
+				- footerMenu
+				- meta
 	- Blog
 		- Blog Index
 		- Blog Entry
 		- RSS
 		- Restore old entries
+	- Other Downloads section
 
 Links of interest:
-	https://github.com/RobLoach/metalsmith-concat-convention
-	http://www.belenalbeza.com/building-a-static-multi-language-site-with-metalsmith-part-i/
+	http://www.belenalbeza.com/building-a-static-multi-language-site-with-metalsmith-part-ii/
 	http://www.okaythree.com/2015/03/building-a-blog-with-metalsmith/
 	https://www.sitepoint.com/create-static-site-metalsmith/
-	https://github.com/macprog-guy/metalsmith-i18next

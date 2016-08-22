@@ -1,6 +1,9 @@
 const metalsmith = require('metalsmith');
 
 const assets = require('metalsmith-assets');
+const branch = require('metalsmith-branch');
+const concat = require('metalsmith-concat-convention');
+const frontmatter = require('metalsmith-matters');
 const inPlace = require('metalsmith-in-place');
 const layout = require('metalsmith-layouts');
 const markdown = require('metalsmith-markdown');
@@ -17,10 +20,18 @@ const minify = {
 
 const config = require('./config.json');
 
+const readConcatFrontmatter = function () {
+    return branch()
+        .pattern('**/*.concat')
+        .use(frontmatter());
+};
+
 metalsmith(__dirname)
     .source(config.source)
     .destination(config.destination)
     .metadata(config.metadata)
+    .frontmatter(false)
+    .use(frontmatter())
     .use(markdown())
     .use(inPlace(config.plugins.inPlace))
     .use(layout(config.plugins.layout))
@@ -30,6 +41,8 @@ metalsmith(__dirname)
     .use(minify.css(config.plugins.minify.css))
     .use(minify.js(config.plugins.minify.js))
     .use(minify.img(config.plugins.minify.img))
+    .use(readConcatFrontmatter())
+    .use(concat())
     .use(cleanup())
     .build(function (err) {
         if (err) throw err;

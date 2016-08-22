@@ -1,0 +1,9 @@
+---
+files:
+    - js/jquery.min.js
+    - js/bootstrap.min.js
+    - js/respond.min.js
+    - js/html5shiv.min.js
+insertNewLine: true
+output: js/dependencies.min.js
+---

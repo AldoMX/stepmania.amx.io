@@ -1,0 +1,7 @@
+---
+files:
+    - css/bootstrap.min.css
+    - css/font-awesome.min.css
+insertNewLine: true
+output: css/dependencies.min.css
+---
