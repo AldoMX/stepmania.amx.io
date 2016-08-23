@@ -1874,3 +1874,7 @@ body> .pre_footer {
 .full-screen footer {
     bottom: 0;
 }
+
+.top .navigation .flag {
+    margin-bottom: -4px;
+}

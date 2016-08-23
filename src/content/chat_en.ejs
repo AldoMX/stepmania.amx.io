@@ -1,0 +1,22 @@
+---
+title: Development chat
+---
+<% if (isChatEnabled) { %>
+    <iframe width="100%" height="100%" scrolling="no" src="http://widget.mibbit.com/?settings=cb168ddded4149bea255750ee7feda86&server=irc.Mibbit.Net&channel=%23StepManiaAMX"></iframe>
+<% } else { %>
+    <div class="formdetails well">
+        <p>Hi there, we have 2 different chats to answer your inquiries:</p>
+        <ul>
+            <li>
+                <a href="//rhythm-amx.slack.com">Slack</a>
+                <small>[<a href="/en/slack-invitation/">Request Invitation</a>]</small>
+                <small>[<a href="//rhythm-amx.slack.com/downloads">Download</a>]</small>
+                - We talk about content creation and upcoming features here, the expected response time is 2 or 3 days.
+            </li>
+            <li>
+                <a href="//www.facebook.com/messages/StepManiaAMX">Facebook Messenger</a>
+                - You will receive personal attention here, but the response time could take around 1 or 2 weeks.
+            </li>
+        </ul>
+    </div>
+<% } %>

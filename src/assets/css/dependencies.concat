@@ -2,6 +2,7 @@
 files:
     - css/bootstrap.min.css
     - css/font-awesome.min.css
+    - css/flags.css
 insertNewLine: true
 output: css/dependencies.min.css
 ---
