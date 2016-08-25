@@ -13,31 +13,25 @@ module.exports = function () {
     ];
 
     return function (files, metalsmith, done) {
-        // Set paths
+        //
+        // Locale metadata
+        //
         for (let filename of Object.keys(files)) {
             let file = files[filename];
-            file.path = filename;
-        }
-
-        for (let fileName of Object.keys(files)) {
-            let file = files[fileName];
             file.altLocalesMetadata = [];
             locales.forEach(locale => {
-                let localeMetadata = {
-                    'iso': locale.iso,
-                    'name': locale.name,
-                    'flagIso': locale.flagIso,
-                    'href': locale.path
-                };
+                if (typeof file.href === 'undefined') {
+                    return;
+                }
 
                 if (locale.iso === file.locale) {
-                    file.localeMetadata = localeMetadata;
+                    file.localeMetadata = locale;
                 } else if (typeof file.altFiles[locale.iso] !== 'undefined') {
-                    localeMetadata.href = `/${file.altFiles[locale.iso].path}`;
-                    file.altLocalesMetadata.push(localeMetadata);
+                    file.altLocalesMetadata.push(locale);
                 }
             });
         }
+
         done();
     };
 };

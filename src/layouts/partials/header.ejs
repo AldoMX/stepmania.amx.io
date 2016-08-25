@@ -25,7 +25,7 @@
                             <a href="<%= element.href %>"><%= element.label %></a>
                         <% } %>
                         <% for (let altLocale of altLocalesMetadata) { %>
-                            <a href="<%= altLocale.href %>"><i class="flag flag-<%= altLocale.flagIso %>"></i> <%= altLocale.name %></a>
+                            <a href="<%= pages[altLocale.iso][filenameKey] %>"><i class="flag flag-<%= altLocale.flagIso %>"></i> <%= altLocale.name %></a>
                         <% } %>
                     </div>
                 </div>
