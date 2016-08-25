@@ -1,6 +1,10 @@
 TODO:
 	- metalsmith-multi-language
-		Translate /content
+		- Create a helper function for URLs
+			- parse strings which `.startsWith('localized:')`, ex:
+				`localized:slack-invite` to pages[locale]['slack-invite']
+			- passthru the rest
+		- Translate /content
 	- metalsmith-i18n
 		- i18n
 			- Hero
@@ -19,3 +23,22 @@ Links of interest:
 	http://www.belenalbeza.com/building-a-static-multi-language-site-with-metalsmith-part-ii/
 	http://www.okaythree.com/2015/03/building-a-blog-with-metalsmith/
 	https://www.sitepoint.com/create-static-site-metalsmith/
+
+Estructura:
+
+/src/
+	/assets/
+		/css/
+		/img/
+		/js/
+	/content/
+		/en/
+			/articles/
+			/pages/
+		/es/
+			/articles/
+			/pages/
+	/download/
+	/theme/
+		/partials/
+		/layouts/
