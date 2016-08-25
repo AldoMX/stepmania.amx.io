@@ -2,21 +2,29 @@ module.exports = function () {
     return function (files, metalsmith, done) {
         const metadata = metalsmith.metadata();
         for (let filename of Object.keys(files)) {
-            let file = files[filename];
-            let [, name, ext] = filename.match(/([^\/]+?)(?:_[a-z]{2})?\.([^\.]+)$/);
-            if (typeof file.slug !== 'undefined') {
-                name = file.slug;
+            if (!filename.startsWith('pages/')) {
+                continue;
             }
 
+            let file = files[filename];
+            let matches = filename.match(/pages\/([^\/]+?)(?:_[a-z]{2})?\.([^\.]+)$/);
+            if (matches === null) {
+                delete files[filename];
+                continue;
+            }
+
+            let [, filenameKey, ext] = matches;
+            let slug = file.slug || filenameKey;
             let newFilename = '';
             if (file.locale !== metadata.defaultLocale) {
                 newFilename += `${file.locale}/`;
             }
-            if (name !== 'index') {
-                newFilename	+= `${name}/`;
+            if (slug !== 'index') {
+                newFilename	+= `${slug}/`;
             }
             newFilename += `index.${ext}`;
 
+            file.filenameKey = filenameKey;
             metadata.moveFile(filename, newFilename, files);
         }
         done();

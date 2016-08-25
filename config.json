@@ -5,6 +5,7 @@
         "assets": {
             "source": "./src/assets"
         },
+        "ignore": "!@(articles|pages)/*.@(md|ejs|html)",
         "inPlace": {
             "engine": "ejs",
             "pattern": "**/*.ejs",
