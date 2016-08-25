@@ -7,7 +7,7 @@ module.exports = function () {
         for (let filename of Object.keys(files)) {
             let matches = filename.match(/(.*\/(?![^\/]+\.min)[^\/]+)\.js$/);
             if (matches) {
-                metadata.moveFile(files, `${matches[1]}.min.js`, filename);
+                metadata.moveFile(`${matches[1]}.min.js`, filename, files);
             }
         }
         done();

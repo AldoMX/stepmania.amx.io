@@ -17,7 +17,7 @@ module.exports = function () {
             }
             newFilename += `index.${ext}`;
 
-            metadata.moveFile(files, filename, newFilename);
+            metadata.moveFile(filename, newFilename, files);
         }
         done();
     };
