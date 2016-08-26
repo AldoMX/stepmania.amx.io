@@ -1,9 +1,5 @@
 TODO:
 	- metalsmith-multi-language
-		- Create a helper function for URLs
-			- parse strings which `.startsWith('localized:')`, ex:
-				`localized:slack-invite` to pages[locale]['slack-invite']
-			- passthru the rest
 		- Translate /content
 	- metalsmith-i18n
 		- i18n
