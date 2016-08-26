@@ -24,6 +24,7 @@ const multiLanguage = require('metalsmith-multi-language');
 // Internal Plugins
 //
 const jsCleanup = require('./plugins/js-cleanup');
+const localizedUrlHelper = require('./plugins/localized-url-helper');
 const moveFileHelper = require('./plugins/move-file-helper');
 const updateMetadataForLayout = require('./plugins/update-metadata-for-layout');
 const updateMetadataForPages = require('./plugins/update-metadata-for-pages');
@@ -49,6 +50,7 @@ metalsmith(__dirname)
     .use(ignore(config.plugins.ignore))
     .use(frontmatter())
     .use(moveFileHelper())
+    .use(localizedUrlHelper())
     .use(windowsPathFixer())
     .use(multiLanguage(config.plugins.multiLanguage))
     .use(updateMetadataForPages())

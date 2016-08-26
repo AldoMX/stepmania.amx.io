@@ -5,7 +5,7 @@
                 <div class="copy text-center">
                     StepMania AMX © 2008-2016 <a href="//aldo.mx">Aldo Fregoso</a><br />
                     <% for (let [index, element] of footerMenu.entries()) { %>
-                        <% if (index > 0) { %> | <% } %><a href="<%= element.href %>"><%= element.label %></a>
+                        <% if (index > 0) { %> | <% } %><a href="<%= localizedUrl(element.href, locale) %>"><%= element.label %></a>
                     <% } %>
                 </div>
             </div>

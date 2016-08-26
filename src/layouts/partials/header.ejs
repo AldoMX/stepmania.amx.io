@@ -13,7 +13,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="logo">
-                        <a href="/">
+                        <a href="<%= localizedUrl('index', locale) %>">
                             <img src="/img/text.png" alt="StepMania AMX" title="StepMania AMX">
                             <h1 class="sr-only">StepMania AMX</h1>
                         </a>
@@ -22,10 +22,10 @@
                 <div class="col-md-6">
                     <div class="navigation pull-right">
                         <% for (let element of headerMenu) { %>
-                            <a href="<%= element.href %>"><%= element.label %></a>
+                            <a href="<%= localizedUrl(element.href, locale) %>"><%= element.label %></a>
                         <% } %>
                         <% for (let altLocale of altLocalesMetadata) { %>
-                            <a href="<%= pages[altLocale.iso][filenameKey] %>"><i class="flag flag-<%= altLocale.flagIso %>"></i> <%= altLocale.name %></a>
+                            <a href="<%= localizedUrl(filenameKey, altLocale.iso) %>"><i class="flag flag-<%= altLocale.flagIso %>"></i> <%= altLocale.name %></a>
                         <% } %>
                     </div>
                 </div>
