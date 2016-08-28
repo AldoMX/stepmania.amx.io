@@ -3,11 +3,11 @@ module.exports = function () {
         const metadata = metalsmith.metadata();
 
         // If there are both: a minified and a non-minified JS,
-        // rename the minified JS to replace the non-minified one
+        // replace the non-minified JS file with the minified one.
         for (let filename of Object.keys(files)) {
             let matches = filename.match(/(.*\/(?![^\/]+\.min)[^\/]+)\.js$/);
             if (matches) {
-                metadata.moveFile(`${matches[1]}.min.js`, filename, files);
+                metadata.moveFile(`${matches[1]}.min.js`, filename);
             }
         }
         done();

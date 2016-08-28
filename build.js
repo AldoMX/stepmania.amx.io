@@ -1,11 +1,12 @@
 const metalsmith = require('metalsmith');
-const config = require('./config.json');
+const config = require('./config');
 
 //
 // External Plugins
 //
 const assets = require('metalsmith-assets');
 const branch = require('metalsmith-branch');
+const collections = require('metalsmith-collections');
 const concat = require('metalsmith-concat-convention');
 const frontmatter = require('metalsmith-matters');
 const ignore = require('metalsmith-ignore');
@@ -23,12 +24,11 @@ const multiLanguage = require('metalsmith-multi-language');
 //
 // Internal Plugins
 //
+const fixWindowsPaths = require('./plugins/fix-windows-paths');
+const helpers = require('./plugins/helpers')(config);
 const jsCleanup = require('./plugins/js-cleanup');
-const localizedUrlHelper = require('./plugins/localized-url-helper');
-const moveFileHelper = require('./plugins/move-file-helper');
-const updateMetadataForLayout = require('./plugins/update-metadata-for-layout');
-const updateMetadataForPages = require('./plugins/update-metadata-for-pages');
-const windowsPathFixer = require('./plugins/windows-path-fixer');
+const updateContentMetadata = require('./plugins/update-content-metadata');
+const updatePermalinks = require('./plugins/update-permalinks');
 
 //
 // Branches
@@ -47,21 +47,24 @@ metalsmith(__dirname)
     .source(config.source)
     .destination(config.destination)
     .frontmatter(false)
+    .use(helpers())
+    .use(fixWindowsPaths()) // requires helpers()
     .use(ignore(config.plugins.ignore))
     .use(frontmatter())
-    .use(moveFileHelper())
-    .use(localizedUrlHelper())
-    .use(windowsPathFixer())
-    .use(multiLanguage(config.plugins.multiLanguage))
-    .use(updateMetadataForPages())
+    .use(collections(config.plugins.collections))
+    .use(multiLanguage({
+        'default': config.defaultLocale,
+        'locales': Object.keys(config.localeInfo)
+    }))
+    .use(updateContentMetadata())
     .use(markdown())
     .use(inPlace(config.plugins.inPlace))
-    .use(windowsPathFixer())
-    .use(updateMetadataForLayout())
+    .use(fixWindowsPaths())
+    .use(updatePermalinks())
     .use(layout(config.plugins.layout))
     .use(minify.html())
     .use(assets(config.plugins.assets))
-    .use(windowsPathFixer())
+    .use(fixWindowsPaths())
     .use(minify.css(config.plugins.minify.css))
     .use(minify.js(config.plugins.minify.js))
     .use(minify.img(config.plugins.minify.img))

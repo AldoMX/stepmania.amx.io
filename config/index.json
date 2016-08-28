@@ -1,9 +1,46 @@
 {
     "source": "./src/content",
     "destination": "../www",
+    "defaultLocale": "es",
+    "localeInfo": {
+        "en": {
+            "iso": "en",
+            "name": "English",
+            "flagIso": "us"
+        },
+        "es": {
+            "iso": "es",
+            "name": "Español",
+            "flagIso": "mx"
+        }
+    },
     "plugins": {
         "assets": {
             "source": "./src/assets"
+        },
+        "collections": {
+            "articles": {
+                "metadata": "./config/articles.json",
+                "pattern": "articles/*_es.*",
+                "sortBy": "date",
+                "reverse": true
+            },
+            "articles_en": {
+                "metadata": "./config/articles.json",
+                "pattern": "articles/*_en.*",
+                "sortBy": "date",
+                "reverse": true
+            },
+            "pages": {
+                "metadata": "./config/pages.json",
+                "pattern": "pages/*_es.*",
+                "refer": false
+            },
+            "pages_i18n": {
+                "metadata": "./config/pages.json",
+                "pattern": "pages/*_!(es).*",
+                "refer": false
+            }
         },
         "ignore": "!@(articles|pages)/*.@(md|ejs|html)",
         "inPlace": {
@@ -35,23 +72,10 @@
                 "pngquant": {},
                 "svgo": {}
             }
-        },
-        "multiLanguage": {
-            "default": "es",
-            "locales": [
-                "en",
-                "es"
-            ]
         }
     },
     "metadata": {
         "title": "",
-        "apiRoot": "//api.stepmania.amx.io",
-        "sma": {
-            "version": "Beta 5.9.2",
-            "download": "//download.stepmania.amx.io/SMA-Beta5.9.2-20140524.7z",
-            "otherDownloads": "//download.stepmania.amx.io"
-        },
         "headerMenu": [
             {
                 "href": "//rhythm-amx.slack.com/",
@@ -86,15 +110,6 @@
         "includes": {
             "css": [],
             "js": []
-        },
-        "displayHero": {
-            "header": false,
-            "footer": false
-        },
-        "isChatEnabled": false,
-        "isFullScreen": false,
-        "showFacebookAppId": false,
-        "useDefaultContainer": true,
-        "useVideoBackground": false
+        }
     }
 }

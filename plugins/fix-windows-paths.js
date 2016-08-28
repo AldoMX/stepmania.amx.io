@@ -3,7 +3,7 @@ module.exports = function () {
         const metadata = metalsmith.metadata();
         for (let filename of Object.keys(files)) {
             if (filename.includes('\\')) {
-                metadata.moveFile(filename, filename.replace(/\\/g, '/'), files);
+                metadata.moveFile(filename, filename.replace(/\\/g, '/'));
             }
         }
         done();

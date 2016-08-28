@@ -1,0 +1,11 @@
+{
+    "displayHero": {
+        "header": false,
+        "footer": false
+    },
+    "isChatEnabled": false,
+    "isFullScreen": false,
+    "showFacebookAppId": false,
+    "useDefaultContainer": true,
+    "useVideoBackground": false
+}
