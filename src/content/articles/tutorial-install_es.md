@@ -2,7 +2,6 @@
 title: Tutorial de Instalación
 date: 2014-07-29T08:35:19Z
 slug: tutorial-instalacion
-fbHref: http://stepmania.amx.io/blog/post/tutorial-instalacion
 ---
 # Secciones
 
