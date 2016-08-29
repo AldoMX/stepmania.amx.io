@@ -106,8 +106,8 @@ module.exports = function () {
             }
             for (const fileMetadata of collection) {
                 const localeMetadata = metadata.hrefs[fileMetadata.locale];
-                const id = `${idPrefix}${fileMetadata.id}`;
-                localeMetadata[id] = fileMetadata.href;
+                fileMetadata.id = `${idPrefix}${fileMetadata.id}`;
+                localeMetadata[fileMetadata.id] = fileMetadata.href;
             }
         }
 
