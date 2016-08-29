@@ -1129,7 +1129,7 @@ header .navigation a:hover {
     text-align: center;
 }
 
-.service .service-item a img {
+.service .service-item img {
     width: 100px;
     display: inline-block;
 }
