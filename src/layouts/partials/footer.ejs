@@ -3,9 +3,13 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="copy text-center">
-                    StepMania AMX © 2008-2016 <a href="//aldo.mx">Aldo Fregoso</a><br />
+                    StepMania AMX © 2008-2016, <a href="//aldo.mx">Aldo Fregoso</a>.
+                    <br />
                     <% for (let [index, element] of footerMenu.entries()) { %>
-                        <% if (index > 0) { %> | <% } %><a href="<%= localizedUrl(element.href, locale) %>"><%= element.label %></a>
+                        <% if (index > 0) { %> | <% } %>
+                        <a href="<%= localizedUrl(element.href, locale) %>">
+                            <%= __(`footer.menu.${element.label}`) %>
+                        </a>
                     <% } %>
                 </div>
             </div>

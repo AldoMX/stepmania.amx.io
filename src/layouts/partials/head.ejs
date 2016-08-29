@@ -1,5 +1,5 @@
 <meta charset="utf-8">
-<title>StepMania AMX<% if (title) { %> - <%= title %><% } %></title>
+<title><%= title ? __('title.with_subtitle', title) : __('title.default') %></title>
 
 <meta name="author" content="Aldo.MX">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">

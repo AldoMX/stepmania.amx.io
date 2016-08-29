@@ -2,6 +2,20 @@ const metalsmith = require('metalsmith');
 const config = require('./config');
 
 //
+// Extended Config
+//
+const _defaultsDeep = require('lodash.defaultsdeep');
+config.plugins = _defaultsDeep(config.plugins, {
+    'i18n': {
+        'locales': Object.keys(config.localeInfo)
+    },
+    'multiLanguage': {
+        'default': config.defaultLocale,
+        'locales': Object.keys(config.localeInfo)
+    }
+});
+
+//
 // External Plugins
 //
 const assets = require('metalsmith-assets');
@@ -9,6 +23,7 @@ const branch = require('metalsmith-branch');
 const collections = require('metalsmith-collections');
 const concat = require('metalsmith-concat-convention');
 const frontmatter = require('metalsmith-matters');
+const i18n = require('metalsmith-i18n');
 const ignore = require('metalsmith-ignore');
 const inPlace = require('metalsmith-in-place');
 const layout = require('metalsmith-layouts');
@@ -52,10 +67,8 @@ metalsmith(__dirname)
     .use(ignore(config.plugins.ignore))
     .use(frontmatter())
     .use(collections(config.plugins.collections))
-    .use(multiLanguage({
-        'default': config.defaultLocale,
-        'locales': Object.keys(config.localeInfo)
-    }))
+    .use(multiLanguage(config.plugins.multiLanguage))
+    .use(i18n(config.plugins.i18n))
     .use(updateContentMetadata())
     .use(markdown())
     .use(inPlace(config.plugins.inPlace))

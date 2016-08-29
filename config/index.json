@@ -42,6 +42,9 @@
                 "refer": false
             }
         },
+        "i18n": {
+            "directory": "./src/locales"
+        },
         "ignore": "!@(articles|pages)/*.@(md|ejs|html)",
         "inPlace": {
             "engine": "ejs",
@@ -72,32 +75,33 @@
                 "pngquant": {},
                 "svgo": {}
             }
-        }
+        },
+        "multiLanguage": {}
     },
     "metadata": {
         "title": "",
         "headerMenu": [
             {
                 "href": "//rhythm-amx.slack.com/",
-                "label": "Slack"
+                "label": "slack"
             },
             {
                 "href": "//www.facebook.com/StepManiaAMX",
-                "label": "Facebook"
+                "label": "facebook"
             }
         ],
         "footerMenu": [
             {
                 "href": "chat",
-                "label": "Chat"
+                "label": "chat"
             },
             {
                 "href": "//sma.uservoice.com",
-                "label": "Feedback"
+                "label": "feedback"
             },
             {
                 "href": "report",
-                "label": "Reporte de Errores"
+                "label": "report"
             }
         ],
         "meta": {

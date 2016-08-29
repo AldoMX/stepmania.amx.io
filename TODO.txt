@@ -2,12 +2,7 @@ TODO:
 	- metalsmith-multi-language
 		- Translate /content
 	- metalsmith-i18n
-		- i18n
-			- Hero
-			- config.json
-				- headerMenu
-				- footerMenu
-				- meta
+		- Use meta.description translation
 	- Blog
 		- Blog Index
 		- Blog Entry

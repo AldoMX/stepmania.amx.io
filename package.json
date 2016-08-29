@@ -44,6 +44,7 @@
     "metalsmith-concat-convention": "^1.0.0",
     "metalsmith-define": "^2.0.1",
     "metalsmith-html-minifier": "^2.1.0",
+    "metalsmith-i18n": "^0.2.0",
     "metalsmith-ignore": "^0.1.2",
     "metalsmith-imagemin": "^2.0.0",
     "metalsmith-in-place": "^1.4.4",

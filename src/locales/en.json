@@ -1,0 +1,18 @@
+{
+	"title.default": "StepMania AMX",
+	"title.with_subtitle": "StepMania AMX - %s",
+	"meta.description": "StepMania AMX (SMA) is a fork of StepMania 3.9 focused in improving the gameplay experience.",
+	"header.logo_alt": "StepMania AMX",
+	"header.logo_screen_reader": "StepMania AMX",
+	"header.menu.slack": "Slack",
+	"header.menu.facebook": "Facebook",
+	"hero.logo_alt": "StepMania AMX's Logo",
+	"hero.first_paragraph": "StepMania AMX (SMA) is a fork of StepMania 3.9 focused in improving the gameplay experience.",
+	"hero.second_paragraph": "It is compatible with Windows XP and later.",
+	"hero.download": "Download",
+	"hero.last_version": "(Latest Version: %s)",
+	"hero.other_versions": "Other Versions (ex. Touch)",
+	"footer.menu.chat": "Chat",
+	"footer.menu.feedback": "Feedback",
+	"footer.menu.report": "Error Reporting"
+}
