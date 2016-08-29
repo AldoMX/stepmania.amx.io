@@ -1,0 +1,27 @@
+<div class="top">
+    <div class="bgvideo-container"></div>
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="logo">
+                        <a href="<%= localizedUrl('index', locale) %>">
+                            <img src="/img/text.png" alt="<%= __('header.logo_alt') %>">
+                            <h1 class="sr-only"><%= __('header.logo_screen_reader') %></h1>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="navigation pull-right">
+                        <% for (let element of headerMenu) { %>
+                            <a href="<%= localizedUrl(element.href, locale) %>"><%= __(`header.menu.${element.label}`) %></a>
+                        <% } %>
+                        <% for (let altLocale of altLocales) { %>
+                            <a href="<%= lang(localeInfo[altLocale].iso).href %>"><i class="flag flag-<%= localeInfo[altLocale].flagIso %>"></i> <%= localeInfo[altLocale].name %></a>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+</div>

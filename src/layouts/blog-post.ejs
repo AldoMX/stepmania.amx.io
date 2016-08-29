@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="<%= locale %>">
+<head>
+<% include partials/head %>
+</head>
+<body>
+<% include partials/blog-header %>
+
+<div class="blog-single block">
+    <div class="container">
+        <div class="col-md-8">
+            <div class="blog-single-content">
+                <div class="blog-single-item">
+                    <h4><a href="<%= localizedUrl(id, locale) %>"><%= title %></a></h4>
+                    <div class="blog-single-meta">
+                        <i class="fa fa-calendar calender"></i> <%= formatDate(date, locale) %>
+                        <!--
+                        {% if blogPost.post.categories.count %}
+                            <i class="fa fa-folder-open folder" title="Categorías"></i>
+                            {% for category in blogPost.post.categories %}
+                                <a href="{{ categoryPage|page({ (categoryPageIdParam): category.slug}) }}">{{ category.name }}</a>
+                                {% if not loop.last %}, {% endif %}
+                            {% endfor %}
+                        {% endif %}
+                        -->
+                    </div>
+                    <!--img src="{{ post.featured_images|first.path }}" alt="{{ post.featured_images|first.description }}" align="left" class="img-responsive"-->
+                    <div>
+                        <%- contents %>
+                    </div>
+                </div>
+                <hr>
+                <div class="img-responsive">
+                    <div id="fb-root"></div>
+                    <script>(function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=405543316125268&version=v2.0"; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk'));</script>
+                    <div class="fb-comments" data-width="100%" data-href="<%= fbHref || localizedUrl(id, locale) %>"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="sidebar">
+                <% include partials/blog-sidebar %>
+            </div>
+        </div>
+    </div>
+</div>
+
+<% include partials/footer %>
+
+<% include partials/scripts %>
+</body>
+</html>

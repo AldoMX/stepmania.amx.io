@@ -1,13 +1,25 @@
 TODO:
 	- Blog
 		- Blog Index
-		- Blog Entry
+			- Show last 5 entries
+			- Excerpt
+			- Older Entries -> Archive
 		- RSS
 			- metalsmith-feed
 		- Sitemap
 			- metalsmith-mapsite
+		- Blog Archive (Monthly)
+		- Category Index
 		- Tag Index
-		- Word Count?
+		- Blog Entry
+			- Word Count?
+			- Categories
+			- Featured Image
+			- Tags
+			- Sidebar
+				- Google Custom Search
+				- Categories
+				- Latest Entries
 	- Chores:
 		- Translate /content/pages/wip/*
 		- Use translation for __('meta.description')

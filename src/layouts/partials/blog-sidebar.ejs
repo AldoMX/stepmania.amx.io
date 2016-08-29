@@ -1,0 +1,76 @@
+<!-- TODO: Google Custom Search -->
+<!--div class="widgets">
+    <h4>Búsqueda</h4>
+    <div class="widgets-content">
+        <div class="input-group">
+            <input class="form-control" type="text">
+            <span class="input-group-addon"><i class="fa fa-search"></i></span>
+        </div>
+    </div>
+</div-->
+
+<!-- TODO: Categorías -->
+<!--div class="widgets">
+    <h4>Categorías</h4>
+    <div class="widgets-content">
+        <ul class="list-inline">
+            {% for category in categories %}
+                <li {% if category.slug == currentCategorySlug %}class="active"{% endif %}>
+                    <a href="{{ categoryPage|page({ (categoryPageIdParam): category.slug}) }}">
+                        {{ category.name }}
+                        {% if category.postCount %}
+                            ({{ category.postCount }})
+                        {% endif %}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div-->
+
+<!-- TODO: Últimas Entradas -->
+<!--div class="widgets">
+    <h4>Últimas Entradas</h4>
+    <div class="widgets-content">
+        {% for post in posts %}
+            {% if post.featured_images.count %}
+                <div class="widgets-img">
+                    <a href="{{ postPage|page({ (postPageIdParam): post.slug}) }}">
+                        <img src="{{ post.featured_images|first.path }}" alt="{{ post.featured_images|first.description }}" class="img-responsive">
+                    </a>
+                </div>
+            {% endif %}
+            <div class="widgets-para">
+                <p><a href="{{ postPage|page({ (postPageIdParam): post.slug}) }}">{{ post.title }}</a></p>
+            </div>
+            <div class="clearfix"></div>
+        {% else %}
+            {{ noPostsMessage }}
+        {% endfor %}
+    </div>
+</div-->
+
+<div class="widgets">
+    <h4><a name="recommended"></a> <%= __('blog.sidebar.recommended') %></h4>
+    <div class="widgets-content social">
+        <h5><%= __('blog.sidebar.songs') %></h5>
+        <a href="//www.facebook.com/ChagoSm" class="facebook"><i class="fa fa-facebook"></i> Chago</a>
+        <a href="//www.facebook.com/nek0steps" class="facebook"><i class="fa fa-facebook"></i> Nek0</a>
+        <a href="//www.facebook.com/smsign" class="facebook"><i class="fa fa-facebook"></i> SM Sign</a>
+        <a href="//worldpumpfest.wordpress.com/" class="twitter"><i class="fa fa-wordpress"></i> World Pump Fest</a>
+        <hr>
+
+        <h5><%= __('blog.sidebar.themes') %></h5>
+        <a href="//www.facebook.com/pages/Takuyas-StepMania-Themes/254167801282579" class="facebook"><i class="fa fa-facebook"></i> Takuya's SM Themes</a>
+        <a href="//www.facebook.com/TemasPIUSMA" class="facebook"><i class="fa fa-facebook"></i> Temas PIU SMA</a>
+        <hr>
+
+        <h5><%= __('blog.sidebar.information') %></h5>
+        <a href="//firega.me" class="twitter"><i class="fa fa-wordpress"></i> Fire Game</a>
+        <a href="//ph-online.net" class="facebook"><i class="fa fa-link"></i> Pump Haven (EN)</a>
+        <a href="//wafflesconpollo.blogspot.com" class="pinterest"><i class="fa fa-link"></i> Waffles con Pollo</a>
+        <hr>
+
+        <a href="//www.facebook.com/StepManiaAMX/posts/615070071902087" class="facebook"><i class="fa fa-facebook"></i> <%= __('blog.sidebar.suggest') %></a>
+    </div>
+</div>

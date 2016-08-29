@@ -1,7 +1,8 @@
 ---
-title: Cómo "instalar" StepMania AMX
+title: Tutorial de Instalación
 date: 2014-07-29T08:35:19Z
 slug: tutorial-instalacion
+fbHref: http://stepmania.amx.io/blog/post/tutorial-instalacion
 ---
 # Secciones
 
@@ -130,8 +131,7 @@ Listo!
 Otra forma de cambiar el tema es presionando F5 en el menú principal, sin
 embargo, esta tecla no funciona con todos los temas.
 
-<!--
-En la [barra lateral de la derecha](#paginas_recomendadas), podrás encontrar
+En la [barra lateral de la derecha](#recommended), podrás encontrar
 algunos links recomendados para descargar temas hechos por miembros de la
 comunidad.
 -->
@@ -166,8 +166,6 @@ Y ahora sí, ya podemos jugar:
 
 Las canciones que agregué las puedes encontrar [aquí](http://aldo.mx/songs).
 
-<!--
-En la [barra lateral de la derecha](#paginas_recomendadas), podrás encontrar
+En la [barra lateral de la derecha](#recommended), podrás encontrar
 algunos links recomendados para descargar canciones hechas por miembros de la
 comunidad.
--->

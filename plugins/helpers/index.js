@@ -5,6 +5,7 @@ module.exports = function (config) {
         return function (files, metalsmith, done) {
             const metadata = metalsmith.metadata();
             return define({
+                formatDate: require('./format-date')(metadata),
                 localeInfo: config.localeInfo,
                 localizedUrl: require('./localized-url')(metadata),
                 moveFile: require('./move-file')(files),

@@ -6,12 +6,16 @@
         "en": {
             "iso": "en",
             "name": "English",
-            "flagIso": "us"
+            "flagIso": "us",
+            "dateLocale": "en",
+            "dateFormat": "dddd, MMMM Do, YYYY"
         },
         "es": {
             "iso": "es",
             "name": "Español",
-            "flagIso": "mx"
+            "flagIso": "mx",
+            "dateLocale": "es",
+            "dateFormat": "dddd D [de] MMMM [de] YYYY"
         }
     },
     "plugins": {
@@ -54,7 +58,7 @@
         "layout": {
             "engine": "ejs",
             "directory": "./src/layouts",
-            "default": "default.ejs",
+            "default": "page.ejs",
             "pattern": "**/*.html"
         },
         "minify": {
