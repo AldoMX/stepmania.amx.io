@@ -1,35 +1,18 @@
 TODO:
-	- metalsmith-multi-language
-		- Translate /content
-	- metalsmith-i18n
-		- Use meta.description translation
 	- Blog
 		- Blog Index
 		- Blog Entry
 		- RSS
-		- Restore old entries
-	- Other Downloads section
+			- metalsmith-feed
+		- Sitemap
+			- metalsmith-mapsite
+		- Tag Index
+		- Word Count?
+	- Chores:
+		- Translate /content/pages/wip/*
+		- Use translation for __('meta.description')
+		- Other Downloads section
 
 Links of interest:
-	http://www.belenalbeza.com/building-a-static-multi-language-site-with-metalsmith-part-ii/
 	http://www.okaythree.com/2015/03/building-a-blog-with-metalsmith/
 	https://www.sitepoint.com/create-static-site-metalsmith/
-
-Estructura:
-
-/src/
-	/assets/
-		/css/
-		/img/
-		/js/
-	/content/
-		/en/
-			/articles/
-			/pages/
-		/es/
-			/articles/
-			/pages/
-	/download/
-	/theme/
-		/partials/
-		/layouts/

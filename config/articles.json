@@ -1,1 +1,10 @@
-{}
+{
+    "displayHero": {
+        "header": false,
+        "footer": false
+    },
+    "isFullScreen": false,
+    "showFacebookAppId": true,
+    "useDefaultContainer": true,
+    "useVideoBackground": false
+}
