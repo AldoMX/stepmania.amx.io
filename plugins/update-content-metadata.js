@@ -59,7 +59,7 @@ module.exports = function () {
         //
         for (let filename of Object.keys(files)) {
             let file = files[filename];
-            [, file.id] = filename.match(/([^\/]+?)(?:_[^_]+)?(?:\.[^\.]+)?$/);
+            [, file.id] = filename.match(/([^\/]+?)(?:_[^_]{2})?(?:\.[^\.]+)?$/);
             file.slug = file.slug || file.id;
         }
 

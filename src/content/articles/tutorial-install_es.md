@@ -20,12 +20,12 @@ juego, agregar temas y agregar canciones.
 
 Este tutorial se irá modificando dependiendo del feedback que se reciba, por lo
 tanto es recomendable que lo compartas usando el
-[link directo](//stepmania.amx.io/blog/2014/07/tutorial-instalacion) en lugar de
+[link directo](article/tutorial-install_es) en lugar de
 copiarlo y pegarlo.
 
 Si estas leyendo este tutorial fuera del sitio oficial de
-[StepMania AMX](//stepmania.amx.io), es mejor que
-[hagas click aquí](//stepmania.amx.io/blog/2014/07/tutorial-instalacion) para
+[StepMania AMX](index_es), es mejor que
+[hagas click aquí](article/tutorial-install_es) para
 leerlo en el sitio oficial.
 
 Si alguna parte del tutorial te pareció confusa o no le entendiste, puedes

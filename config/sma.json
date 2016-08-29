@@ -2,5 +2,6 @@
     "apiRoot": "//api.stepmania.amx.io",
     "currentVersion": "Beta 5.9.2",
     "download": "//download.stepmania.amx.io/SMA-Beta5.9.2-20140524.7z",
-    "otherDownloads": "//download.stepmania.amx.io"
+    "otherDownloads": "//download.stepmania.amx.io",
+    "website": "//stepmania.amx.io"
 }

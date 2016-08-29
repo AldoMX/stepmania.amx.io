@@ -27,7 +27,6 @@ const i18n = require('metalsmith-i18n');
 const ignore = require('metalsmith-ignore');
 const inPlace = require('metalsmith-in-place');
 const layout = require('metalsmith-layouts');
-const markdown = require('metalsmith-markdown');
 const minify = {
     html: require('metalsmith-html-minifier'),
     css: require('metalsmith-clean-css'),
@@ -42,6 +41,7 @@ const multiLanguage = require('metalsmith-multi-language');
 const fixWindowsPaths = require('./plugins/fix-windows-paths');
 const helpers = require('./plugins/helpers')(config);
 const jsCleanup = require('./plugins/js-cleanup');
+const markdownWithLocalizedUrls = require('./plugins/markdown-with-localized-urls');
 const updateContentMetadata = require('./plugins/update-content-metadata');
 const updatePermalinks = require('./plugins/update-permalinks');
 
@@ -70,7 +70,7 @@ metalsmith(__dirname)
     .use(multiLanguage(config.plugins.multiLanguage))
     .use(i18n(config.plugins.i18n))
     .use(updateContentMetadata())
-    .use(markdown())
+    .use(markdownWithLocalizedUrls())
     .use(inPlace(config.plugins.inPlace))
     .use(fixWindowsPaths())
     .use(updatePermalinks())
