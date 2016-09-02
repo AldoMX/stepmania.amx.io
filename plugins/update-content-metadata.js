@@ -2,39 +2,6 @@ const defaultsDeep = require('lodash.defaultsdeep');
 const moment = require('moment');
 
 let defaultLocale;
-
-let updateArticleCollectionHref = function (collection) {
-    for (const fileMetadata of collection) {
-        const href = [''];  // for leading `/`
-        if (fileMetadata.locale !== defaultLocale) {
-            href.push(fileMetadata.locale);
-        }
-        href.push(
-            'blog',
-            moment(fileMetadata.date).format('YYYY/MM'),
-            fileMetadata.slug,
-            ''  // for trailing `/`
-        );
-        fileMetadata.href = href.join('/');
-    }
-};
-
-let updatePageCollectionHref = function (collection) {
-    for (const fileMetadata of collection) {
-        const href = [''];  // for leading `/`
-        if (fileMetadata.locale !== defaultLocale) {
-            href.push(fileMetadata.locale);
-        }
-        if (fileMetadata.slug !== 'index') {
-            href.push(fileMetadata.slug);
-        }
-        href.push(
-            ''  // for trailing `/`
-        );
-        fileMetadata.href = href.join('/');
-    }
-};
-
 module.exports = function () {
     return function (files, metalsmith, done) {
         const metadata = metalsmith.metadata();
@@ -55,12 +22,15 @@ module.exports = function () {
         }
 
         //
-        // Ids and Slugs
+        // Ids, Slugs and Dates
         //
         for (let filename of Object.keys(files)) {
             let file = files[filename];
             [, file.id] = filename.match(/([^\/]+?)(?:_[^_]{2})?(?:\.[^\.]+)?$/);
             file.slug = file.slug || file.id;
+            if (typeof file.date !== 'undefined') {
+                file.date = moment(file.date);
+            }
         }
 
         //
@@ -123,4 +93,36 @@ module.exports = function () {
 
         done();
     };
+};
+
+var updateArticleCollectionHref = function (collection) {
+    for (const fileMetadata of collection) {
+        const href = [''];  // for leading `/`
+        if (fileMetadata.locale !== defaultLocale) {
+            href.push(fileMetadata.locale);
+        }
+        href.push(
+            'blog',
+            fileMetadata.date.format('YYYY/MM'),
+            fileMetadata.slug,
+            ''  // for trailing `/`
+        );
+        fileMetadata.href = href.join('/');
+    }
+};
+
+var updatePageCollectionHref = function (collection) {
+    for (const fileMetadata of collection) {
+        const href = [''];  // for leading `/`
+        if (fileMetadata.locale !== defaultLocale) {
+            href.push(fileMetadata.locale);
+        }
+        if (fileMetadata.slug !== 'index') {
+            href.push(fileMetadata.slug);
+        }
+        href.push(
+            ''  // for trailing `/`
+        );
+        fileMetadata.href = href.join('/');
+    }
 };
