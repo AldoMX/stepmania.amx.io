@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="<%= locale %>">
+<head>
+<% include partials/head %>
+</head>
+<body>
+<% include partials/blog-header %>
+
+<div class="blog block">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <%- contents %>
+            </div>
+            <div class="col-md-4">
+                <div class="sidebar">
+                    <% include partials/blog-sidebar %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<% include partials/footer %>
+
+<% include partials/scripts %>
+</body>
+</html>

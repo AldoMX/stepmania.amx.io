@@ -1,16 +1,16 @@
 TODO:
 	- Blog
+		- RSS
+			- metalsmith-feed
 		- Blog Index
 			- Show last 5 entries
 			- Excerpt
 			- Older Entries -> Archive
-		- RSS
-			- metalsmith-feed
-		- Sitemap
-			- metalsmith-mapsite
-		- Blog Archive (Monthly)
+		- Blog Archive
 		- Category Index
 		- Tag Index
+		- Sitemap
+			- metalsmith-mapsite
 		- Blog Entry
 			- Word Count?
 			- Categories
@@ -28,3 +28,60 @@ TODO:
 Links of interest:
 	http://www.okaythree.com/2015/03/building-a-blog-with-metalsmith/
 	https://www.sitepoint.com/create-static-site-metalsmith/
+
+===
+
+        //
+        // Dictionary of Article hrefs by Year & Month
+        //
+        metadata.articleHrefsByYear = {};
+        metadata.locales.forEach(locale => { metadata.articleHrefsByYear[locale] = {}; });
+        for (let collectionId of Object.keys(metadata.collections)) {
+            const [, collectionType] = collectionId.match(/^(.+?)(?:_[^_]+)?$/);
+            if (collectionType !== 'articles') {
+                return;
+            }
+
+            const collection = metadata.collections[collectionId];
+            for (const fileMetadata of collection) {
+                const [year, month] = fileMetadata.date.format('YYYY,M').split(',');
+                const articlesByYear = metadata.articleHrefsByYear[fileMetadata.locale];
+                if (typeof articlesByYear[year] === 'undefined') {
+                    articlesByYear[year] = [];
+                    articlesByYear[year].byMonth = {};
+                }
+                if (typeof articlesByYear[year].byMonth[month] === 'undefined') {
+                    articlesByYear[year].byMonth[month] = [];
+                }
+                articlesByYear[year].push(fileMetadata);
+                articlesByYear[year].byMonth[month].push(fileMetadata);
+            }
+        }
+        metadata.locales.forEach(locale => {
+            for (let year of Object.keys(metadata.articleHrefsByYear[locale])) {
+                const articlesByYear = metadata.articleHrefsByYear[locale][year];
+                articlesByYear.sort(sortArticlesByDateAndTitle);
+                for (let month of Object.keys(articlesByYear.byMonth)) {
+                    const articlesByMonth = articlesByYear.byMonth[month];
+                    articlesByMonth.sort(sortArticlesByDateAndTitle);
+                }
+            }
+        });
+
+var sortArticlesByDateAndTitle = function (articleA, articleB) {
+    const dateA = Number.parseInt(articleA.date.format('YYYYDDDD'), 10),
+        dateB = Number.parseInt(articleB.date.format('YYYYDDDD'), 10);
+    if (dateA === dateB) {
+        const titleA = articleA.title.toUpperCase(),
+            titleB = articleB.title.toUpperCase();
+
+        if (titleA < titleB) {
+            return -1;
+        }
+        if (titleA > titleB) {
+            return 1;
+        }
+        return 0;
+    }
+    return dateB - dateA;
+};
