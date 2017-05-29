@@ -1,0 +1,15 @@
+<script>
+    var languages = [];
+    navigator.languages.forEach(function(lang) {
+        if (/^(?:es|en)/.test(lang.toLowerCase())) {
+            languages.push(lang.substr(0,2).toLowerCase());
+        }
+    });
+    languages.push("en");
+    if (languages[0] != "es") {
+        window.location = "/" + languages[0] + "/report/";
+    }
+    else {
+        window.location = "/report/";
+    }
+</script>
