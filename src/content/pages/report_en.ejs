@@ -1,6 +1,19 @@
 ---
 title: Error Reporting
+includes:
+    js:
+        - /js/report.js
+useDefaultContainer: false
 ---
+<script type="text/json" id="translations">
+{
+    "error_no_crashinfo": "Please add the following file: crashinfo.txt",
+    "error_no_log": "Please add the following file: log.txt",
+    "percent_completed": "% completed",
+    "http_error_report": "HTTP Error [status_code] when receiving your report.\n---\nServer response:",
+    "success": "Your report was received successfully.\n---\nServer response:"
+}
+</script>
 <div class="about-us block">
     <div class="container">
         <div class="about-one">
@@ -11,11 +24,11 @@ title: Error Reporting
             </div>
             <div class="about-one-item">
                 <div class="about-one-content">
-                    <h3>¡Una disculpa por el error!</h3>
-                    <p>Antes que nada, quiero ofrecerte una disculpa por la mala experiencia que te causó este error, y quiero agradecerte por tomarte la molestia de reportarlo.</p>
-                    <p>Solo es posible reportar crashes, es decir, errores que aparecen con una ventana como la siguiente:</p>
+                    <h3>Sorry for the crash!</h3>
+                    <p>Before continuing, let me apologize for the bad experience that crash meant to you, and let me thank you for taking the effort to report it.</p>
+                    <p>You can only report crashes, I mean, error screens like the following one:</p>
                     <p class="text-center"><img src="/img/crash.png" alt="Crash" class="img-responsive inline"></p>
-                    <p>Si tienes dudas adicionales, puedes consultar en el <a href="<%= localizedUrl('chat', locale) %>">chat</a>.</p>
+                    <p>If you got questions, you can ask us in the <a href="<%= localizedUrl('chat', locale) %>">chat</a>.</p>
                 </div>
             </div>
             <div class="clearfix"></div>
@@ -24,9 +37,9 @@ title: Error Reporting
         <div class="formdetails well">
             <form class="form-horizontal" id="upload_report" method="POST" action="<%= sma.apiRoot %>/upload_report.php" enctype="multipart/form-data" role="form">
                 <fieldset>
-                    <legend>Reportar Crash</legend>
-                    <p>Para reportar el error, necesitas buscar los siguientes archivos de la carpeta <strong>Logs</strong>,
-                        dentro de la carpeta donde instalaste <strong>StepMania AMX</strong>:</p>
+                    <legend>Crash Report</legend>
+                    <p>To report the crash, you will need the following files from the <strong>Logs</strong> folder,
+                    located at the folder where you installed <strong>StepMania AMX</strong>:</p>
                     <div class="form-group">
                         <label for="file_crashinfo" class="col-xs-3 control-label">crashinfo.txt</label>
                         <div class="col-xs-9">
@@ -40,15 +53,15 @@ title: Error Reporting
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="text_feedback" class="col-lg-3 control-label">¿Qué estabas haciendo cuando sucedio el error?</label>
+                        <label for="text_feedback" class="col-lg-3 control-label">What were you doing during when the crash happened?</label>
                         <div class="col-lg-9">
                             <textarea class="form-control" rows="5" id="text_feedback" name="text_feedback"></textarea>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-lg-offset-3 col-lg-9">
-                            <button type="submit" class="btn btn-primary">Enviar</button>
-                            <button type="reset" class="btn btn-default">Resetear</button>
+                            <button type="submit" class="btn btn-primary">Send</button>
+                            <button type="reset" class="btn btn-default">Reset</button>
                         </div>
                     </div>
                 </fieldset>
@@ -61,12 +74,12 @@ title: Error Reporting
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Enviando Reporte...</h4>
+                <h4 class="modal-title">Sending Report...</h4>
             </div>
             <div class="modal-body">
                 <div class="progress progress-striped active">
                     <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
-                        <span class="sr-only">0% completado</span>
+                        <span class="sr-only">0% completed</span>
                     </div>
                 </div>
             </div>

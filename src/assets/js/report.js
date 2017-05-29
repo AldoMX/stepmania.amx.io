@@ -21,6 +21,7 @@ supportsAjaxForm() && document.addEventListener('DOMContentLoaded', function () 
         $modal_enviando = jQuery('#modal_enviando'),
         $barra_progreso = $modal_enviando.find('.progress-bar'),
         $barra_progreso_texto = $barra_progreso.find('.sr-only'),
+        translations = JSON.parse($('translations').innerText),
         content_crashinfo, content_log, content_feedback,
         content_zip;
 
@@ -28,10 +29,10 @@ supportsAjaxForm() && document.addEventListener('DOMContentLoaded', function () 
         var error = [];
 
         if (!input_crashinfo.files.length)
-            error.push('Por favor agrega el archivo crashinfo.txt');
+            error.push(translations.error_no_crashinfo);
 
         if (!input_log.files.length)
-            error.push('Por favor agrega el archivo log.txt');
+            error.push(translations.error_no_log);
 
         if (error.length) {
             alert(error.join('\n'));
@@ -66,15 +67,15 @@ supportsAjaxForm() && document.addEventListener('DOMContentLoaded', function () 
     function uploadUpdate(percent) {
         percent = percent.toFixed(2);
         $barra_progreso.css('width', percent + '%').attr('aria-valuenow', percent);
-        $barra_progreso_texto.text(percent + '% completado');
+        $barra_progreso_texto.text(percent + translations.percent_completed);
     }
 
     function uploadFinished(status_code, response) {
         $modal_enviando.modal('hide');
         if (status_code == 200)
-            alert(response);
+            alert(translations.success + response);
         else
-            alert('Error HTTP ' + status_code + ' al recibir tu reporte.\n---\n' + response);
+            alert(translations.http_error_report.replace('[status_code]', status_code) + response);
     }
 
     function uploadZip(event_submit) {
